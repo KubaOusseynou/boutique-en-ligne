@@ -52,7 +52,8 @@ def supprimer_produit(id):
 
 @app.route('/modifier/<int:id>')
 def modifier_produit_page(id):
-    produit = db.session.get(Produit, id)
+    #produit = db.session.get(Produit, id)
+    produit = Produit.query.get(id)
     produits = Produit.query.all()
     if not produits:  # Si aucun produit trouvé
         produits = []  # Passez une liste vide
@@ -61,13 +62,20 @@ def modifier_produit_page(id):
 
 @app.route('/modifier/<int:id>', methods=['POST'])
 def modifier_produit(id):
-    produit = session.get(Produit,id)
+    produit = Produit.query.get(id)
+    if not produit:
+        return "Produit introuvable", 404
     produit.nom = request.form['nom']
     produit.description = request.form['description']
     produit.prix = request.form['prix']
     produit.stock = request.form['stock']
-    db.session.commit()
-    return redirect(url_for('admin'))
+    try:
+        db.session.commit()
+        return redirect(url_for('admin')), 200
+    except Exception as e:
+        db.session.rollback()
+        return f"Erreur lors de la modification : {e}", 500
+
 
 
 if __name__ == '__main__':

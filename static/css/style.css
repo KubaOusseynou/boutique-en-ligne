@@ -1,7 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-image: url('../images/background.jpg'); /* Chemin relatif vers votre image */
+    /* background-image: url('../images/background.jpg'); /* Chemin relatif vers votre image */
+    background-color: #85b3ff;
     background-size: cover; /* Ajuste l'image pour couvrir tout l'écran */
     background-repeat: no-repeat; /* Évite les répétitions de l'image */
     background-attachment: fixed; /* L'image reste fixe lors du défilement */
@@ -16,13 +17,17 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    /*background-color: gold;*/
+
 }
 
 .produit {
+    background-color: darkblue;
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
     width: 200px;
+    color: gold;
 }
 
 form {

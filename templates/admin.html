@@ -11,8 +11,8 @@
     <ul>
         {% for produit in produits %}
             <li>
-                {{ produit.nom }} - {{ produit.prix }} €
-                <a href="{{ url_for('modifier_produit_page', id=produit.id) }}">Modifier</a>
+                {{ produit.nom }} - {{ produit.prix }} €  / Quantité en stock {{ produit.stock }}
+                <a href="{{ url_for('modifier_produit', id=produit.id) }}">Modifier</a>
                 <a href="{{ url_for('supprimer_produit', id=produit.id) }}">Supprimer</a>
             </li>
         {% endfor %}
@@ -34,7 +34,7 @@
     <h2>Modifier un produit</h2>
     <!-- Ce formulaire sera affiché lorsque vous cliquerez sur "Modifier" -->
     {% if produit_modifie %}
-    <form method="POST" action="{{ url_for('modifier_produit', id=produit_modifie.id) }}">
+    <form method="POST" action="{{ url_for('modifier_produit_page', id=produit_modifie.id) }}">
         <label for="nom">Nom du produit :</label>
         <input type="text" id="nom" name="nom" value="{{ produit_modifie.nom }}" required><br>
         <label for="description">Description :</label>
@@ -45,6 +45,12 @@
         <input type="number" id="stock" name="stock" value="{{ produit_modifie.stock }}" required><br>
         <button type="submit">Modifier le produit</button>
     </form>
+
+        <script>
+    function confirmerModification() {
+        return confirm("Êtes-vous sûr de vouloir modifier ce produit ?");
+    }
+</script>
     {% endif %}
 </body>
 </html>
