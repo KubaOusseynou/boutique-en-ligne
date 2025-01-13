@@ -11,6 +11,7 @@
     <div class="produits">
         {% for produit in produits %}
             <div class="produit">
+            <img src="{{ produit.image_url or '/static/images/default.jpg' }}" alt="Image de {{ produit.nom }}" class="image-produit">
                 <h2>{{ produit.nom }}</h2>
                 <p>{{ produit.description }}</p>
                 <p>Prix : {{ produit.prix }} €</p>

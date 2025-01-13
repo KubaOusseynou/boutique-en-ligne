@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleAdmin.css') }}">
     <title>Administration</title>
 </head>
 <body>
     <h1>Administration de la boutique</h1>
+
     <h2>Liste des produits</h2>
     <ul>
         {% for produit in produits %}
@@ -19,7 +21,7 @@
     </ul>
 
     <h2>Ajouter un produit</h2>
-    <form method="POST" action="/ajouter">
+    <form method="POST" action="/ajouter" enctype="multipart/form-data">
         <label for="nom">Nom du produit :</label>
         <input type="text" id="nom" name="nom" required><br>
         <label for="description">Description :</label>
@@ -28,13 +30,13 @@
         <input type="number" step="0.01" id="prix" name="prix" required><br>
         <label for="stock">Stock :</label>
         <input type="number" id="stock" name="stock" required><br>
+        <input type="file" name="image">
         <button type="submit">Ajouter le produit</button>
     </form>
 
     <h2>Modifier un produit</h2>
-    <!-- Ce formulaire sera affiché lorsque vous cliquerez sur "Modifier" -->
     {% if produit_modifie %}
-    <form method="POST" action="{{ url_for('modifier_produit_page', id=produit_modifie.id) }}">
+    <form method="POST" action="{{ url_for('modifier_produit', id=produit_modifie.id) }}" enctype="multipart/form-data" onsubmit="return confirmerModification()">
         <label for="nom">Nom du produit :</label>
         <input type="text" id="nom" name="nom" value="{{ produit_modifie.nom }}" required><br>
         <label for="description">Description :</label>
@@ -43,14 +45,20 @@
         <input type="number" step="0.01" id="prix" name="prix" value="{{ produit_modifie.prix }}" required><br>
         <label for="stock">Stock :</label>
         <input type="number" id="stock" name="stock" value="{{ produit_modifie.stock }}" required><br>
+
+        <!-- Affichage de l'image actuelle et champ pour télécharger une nouvelle image -->
+        <label for="image">Image :</label>
+        <img width="20%" height="auto" src="{{ produit_modifie.image_url or '/static/images/default.jpg' }}" alt="Image de {{ produit_modifie.nom }}" class="image-produit"><br>
+        <input type="file" id="image" name="image"><br>
+
         <button type="submit">Modifier le produit</button>
     </form>
 
-        <script>
-    function confirmerModification() {
-        return confirm("Êtes-vous sûr de vouloir modifier ce produit ?");
-    }
-</script>
+    <script>
+        function confirmerModification() {
+            return confirm("Êtes-vous sûr de vouloir modifier ce produit ?");
+        }
+    </script>
     {% endif %}
 </body>
 </html>

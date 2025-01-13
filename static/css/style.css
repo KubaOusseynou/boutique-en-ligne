@@ -17,6 +17,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 20px;
     /*background-color: gold;*/
 
 }
@@ -28,8 +29,49 @@ h1 {
     margin: 10px;
     width: 200px;
     color: gold;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 form {
     margin-top: 20px;
+}
+
+/* Style pour le bouton Ajouter au Panier */
+button {
+    background-color: #28a745; /* Vert */
+    color: white; /* Texte blanc */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Transition douce */
+}
+
+/* Effet au survol */
+button:hover {
+    background-color: #218838; /* Vert plus foncé */
+    transform: scale(1.05); /* Léger agrandissement */
+}
+
+/* Effet au clic */
+button:active {
+    background-color: #1e7e34; /* Encore plus foncé */
+    transform: scale(0.95); /* Réduction temporaire */
+}
+
+/* Style pour les images */
+.image-produit {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.image-produit_modifie {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
