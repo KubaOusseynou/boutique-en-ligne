@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .show-password-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+        .show-password-container input[type="checkbox"] {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Connexion</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="alert {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('login') }}">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mot_de_passe">Mot de passe :</label>
+            <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+            <div class="show-password-container">
+                <label for="show-password">Afficher le mot de passe</label>
+                <input type="checkbox" id="show-password" onclick="togglePassword()">
+            </div>
+
+            <button type="submit">Se connecter</button>
+        </form>
+        <p class="register-link">
+            Pas encore inscrit ? <a href="{{ url_for('register') }}">Créer un compte</a>
+        </p>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('mot_de_passe');
+            const showPasswordCheckbox = document.getElementById('show-password');
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>

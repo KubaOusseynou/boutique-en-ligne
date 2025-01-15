@@ -1,77 +1,356 @@
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    /* background-image: url('../images/background.jpg'); /* Chemin relatif vers votre image */
-    background-color: #85b3ff;
-    background-size: cover; /* Ajuste l'image pour couvrir tout l'écran */
-    background-repeat: no-repeat; /* Évite les répétitions de l'image */
-    background-attachment: fixed; /* L'image reste fixe lors du défilement */
-    background-position: center; /* Centre l'image */
+/* Style pour le header */
+.main-header {
+    background-color: darkblue; /* Bleu principal */
+    color: gold;
+    text-align: center;
+    padding: 30px 20px; /* Augmentation de l'espacement */
+    margin-bottom: 30px; /* Augmenter l'espace entre le header et le reste */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Ombre plus marquée */
+    border-radius: 10px; /* Coins arrondis */
 }
 
+.main-header h1 {
+    font-size: 3rem; /* Taille plus grande pour un meilleur impact */
+    margin: 0;
+}
+
+.main-header p {
+    font-size: 1.4rem; /* Taille du texte plus lisible */
+    margin: 10px 0 0;
+}
+
+/* Style pour le corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 30px;
+    background-color: rgba(0, 216, 253, 0.08);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    line-height: 1.6; /* Meilleure lisibilité */
+}
+
+ {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+/* Titre principal */
 h1 {
     text-align: center;
+    font-size: 2.5rem; /* Ajuster la taille pour correspondre au header */
+    margin-bottom: 20px;
 }
 
+/* Conteneur des produits */
 .produits {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 20px;
-    /*background-color: gold;*/
-
+    margin-bottom: 20px;
 }
 
+/* Carte produit */
 .produit {
     background-color: darkblue;
     border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
+    padding: 8px; /* Réduction de l'espace interne */
+    width: 180px; /* Réduction de la largeur */
     color: gold;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    border-radius: 8px; /* Coins arrondis */
+    transition: all 0.3s ease-in-out;
+    font-size: 0.9rem; /* Texte plus petit */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* Effet au survol des produits */
+.produit:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Style des formulaires */
 form {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 /* Style pour le bouton Ajouter au Panier */
 button {
-    background-color: #28a745; /* Vert */
-    color: white; /* Texte blanc */
+    background-color: #28a745;
+    color: white;
     font-size: 16px;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s; /* Transition douce */
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Effet au survol */
 button:hover {
-    background-color: #218838; /* Vert plus foncé */
-    transform: scale(1.05); /* Léger agrandissement */
+    background-color: #218838;
+    transform: scale(1.05);
 }
 
 /* Effet au clic */
 button:active {
-    background-color: #1e7e34; /* Encore plus foncé */
-    transform: scale(0.95); /* Réduction temporaire */
+    background-color: #1e7e34;
+    transform: scale(0.95);
 }
 
-/* Style pour les images */
+/* Style pour les images
 .image-produit {
     width: 100%;
     height: auto;
     border-radius: 8px;
     margin-bottom: 10px;
-}
-.image-produit_modifie {
-    width: 100%;
-    height: auto;
+}*/
+/* Images des produits - taille fixe */
+.image-produit {
+    width: 100%; /* Largeur de la carte */
+    height: 150px; /* Hauteur fixe pour toutes les images */
+    object-fit: cover; /* Découpe ou ajuste l'image pour remplir les dimensions */
     border-radius: 8px;
     margin-bottom: 10px;
+}
+
+
+/* Style pour Login */
+.register-link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Conteneur principal de la connexion */
+.login-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px 30px;
+    width: 300px;
+    text-align: center;
+}
+
+/* Titre de la page */
+.login-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: darkblue;
+}
+
+/* Styles des champs de formulaire */
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #333;
+    font-weight: bold;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Style du bouton */
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: navy;
+}
+
+/* Lien pour s'inscrire */
+.register-link {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.register-link a {
+    color: darkblue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Messages flash */
+.alert {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Conteneur principal de l'inscription */
+.register-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px 30px;
+    width: 350px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* Titre de la page */
+.register-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: darkblue;
+}
+
+/* Labels et champs du formulaire */
+.register-container label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #333;
+    font-weight: bold;
+}
+
+.register-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Bouton d'inscription */
+.register-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-container button:hover {
+    background-color: navy;
+}
+
+/* Lien pour se connecter */
+.login-link {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.login-link a {
+    color: darkblue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Messages flash */
+.alert {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+
+
+/* Style pour le footer */
+.main-footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 30px 20px; /* Augmenter l'espace dans le footer */
+    margin-top: 40px;
+    box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.main-footer nav {
+    margin-top: 10px;
+}
+
+.main-footer a {
+    color: #17a2b8;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9rem;
+}
+
+.main-footer a:hover {
+    text-decoration: underline;
 }

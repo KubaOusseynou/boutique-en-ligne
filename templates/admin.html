@@ -7,7 +7,19 @@
     <title>Administration</title>
 </head>
 <body>
-    <h1>Administration de la boutique</h1>
+    <header>
+        <div>
+        <!-- Bouton de retour à la Boutique -->
+        <a href="{{ url_for('index') }}" class="btn-home" style="float: right; background-color: red; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">
+            Retour à la Boutique
+        </a>
+        <h1>Administration de la boutique</h1>
+        <!-- Bouton de déconnexion -->
+        <a href="{{ url_for('logout') }}" class="btn-deconnexion" style="float: right; background-color: red; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">
+            Déconnexion
+        </a>
+        </div>
+    </header>
 
     <h2>Liste des produits</h2>
     <ul>
